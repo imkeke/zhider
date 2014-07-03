@@ -1,0 +1,15 @@
+{
+  "name" : "zhider",
+  "version" : "0.1",
+  "manifest_version": 2,
+  "permissions" : [
+    "http://*.zhihu.com/"
+  ],
+  "content_scripts" : [
+    {
+      "matches"   : ["*://*.zhihu.com/*"],
+      "css"       : ["reader.css"],
+      "js"        : ["lib/jquery-2.1.1.min.js", "reader.js"]
+    }
+  ]
+}
