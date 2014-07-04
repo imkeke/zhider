@@ -31,5 +31,21 @@ $page.on('click', function(event) {
     }
 })
 
-$('.zm-votebar').after($readerBtn)
+function setBtn() {
+    $('.zm-votebar:not(.zm-votebar-already)')
+    .after($readerBtn).addClass('zm-votebar-already')
+}
+setBtn()
+
+var defaultFeedLength = $('#js-home-feed-list .feed-item').length
+  , feedLength
+
+setInterval(function() {
+    feedLength = $('#js-home-feed-list .feed-item').length
+    if (feedLength > defaultFeedLength) {
+        setBtn()
+        defaultFeedLength = feedLength
+    }
+}, 1000)
+
 $('body').append($page)
