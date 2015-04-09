@@ -32,6 +32,7 @@ $page.on('click', function(event) {
 })
 
 function setBtn() {
+  if ($('.question-page').length) return
   $('.zm-votebar:not(.zm-votebar-already)')
   .after($readerBtn).addClass('zm-votebar-already')
 }
