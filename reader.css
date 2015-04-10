@@ -50,6 +50,22 @@
   margin-bottom: 40px;
   line-height: 1.5;
 }
+.pager .page h2,
+.pager .page h3
+{
+  font-size: 18px;
+}
+.pager .page p,
+.pager .page img {
+  margin: 12px 0;
+}
+.pager .page ul,
+.pager .page ol {
+  margin-left: 40px;
+}
+.pager .page br {
+  display: none;
+}
 .bodyon {
   overflow: hidden;
 }

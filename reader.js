@@ -1,3 +1,14 @@
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len
+  if (this.length == 0) return hash
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i)
+    hash  = ((hash << 5) - hash) + chr
+    hash |= 0
+  }
+  return hash
+}
+
 var $readerBtn = $('<div class="zm-reader-btn">阅读</div>')
   , $page = $('<div class="pager"><div class="page"></div></div>')
 
@@ -18,6 +29,12 @@ $('body').on('click', '.zm-reader-btn', function() {
 
   $page.show()
 
+  if ($title.text().hashCode() != $page.attr('data-hash')) {
+    $page.scrollTop(0)
+  }
+
+  $page.attr('data-hash', $title.text().hashCode())
+
   $('body').addClass('bodyon')
 })
 
@@ -32,7 +49,9 @@ $page.on('click', function(event) {
 })
 
 function setBtn() {
-  if ($('.question-page').length) return
+  var isHome = $('#zh-top-home-link').hasClass('current')
+  if (!isHome) return
+
   $('.zm-votebar:not(.zm-votebar-already)')
   .after($readerBtn).addClass('zm-votebar-already')
 }
