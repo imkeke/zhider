@@ -36,6 +36,22 @@ $('body').on('click', '.zm-reader-btn', function() {
   $page.attr('data-hash', $title.text().hashCode())
 
   $('body').addClass('bodyon')
+}).on('click', function(event) {
+  var e = $(event.target)
+    , isShow
+
+  if (e.hasClass('zh-summary')) {
+    isShow = e[0].style.display == 'none'
+    if (isShow) {
+      console.log(e.parents('.entry-body'))
+      e.parents('.entry-body').find('.zm-reader-btn').addClass('expand')
+    }
+  }
+
+  if (e.hasClass('collapse')) {
+    e.parents('.entry-body').find('.zm-reader-btn').removeClass('expand')
+  }
+
 })
 
 $page.on('click', function(event) {

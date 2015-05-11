@@ -22,6 +22,9 @@
   background-color: #6981bf;
   color: #fff;
 }
+.zm-reader-btn.expand {
+  top: 78px;
+}
 .pager {
   display: none;
   width: 100%;
@@ -63,8 +66,8 @@
 .pager .page ol {
   margin-left: 40px;
 }
-.pager .page br {
-  display: none;
+.pager .answer-date-link-wrap {
+  display: block
 }
 .bodyon {
   overflow: hidden;
