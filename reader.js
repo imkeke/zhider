@@ -16,6 +16,7 @@ $('body').on('click', '.zm-reader-btn', function() {
   var e = $(this)
     , $title = $('<h1></h1>').text(e.parents('.content').find('h2').find('a').text())
     , $more = e.parent().find('.zh-summary')
+    , $hash = $more.length ? $more.text() : ''
     , content = $more.length ?
                 e.parent().find('.zm-editable-content').html() :
                 ''
@@ -29,11 +30,11 @@ $('body').on('click', '.zm-reader-btn', function() {
 
   $page.show()
 
-  if ($title.text().hashCode() != $page.attr('data-hash')) {
+  if ($hash.hashCode() != $page.attr('data-hash')) {
     $page.scrollTop(0)
   }
 
-  $page.attr('data-hash', $title.text().hashCode())
+  $page.attr('data-hash', $hash.hashCode())
 
   $('body').addClass('bodyon')
 }).on('click', function(event) {
